@@ -1,0 +1,62 @@
+package Listbox;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
+
+public class Test_11
+{
+
+	public static void main(String[] args) throws InterruptedException
+	{
+	
+		
+		ChromeOptions co=new ChromeOptions();
+		co.addArguments("--remote-allow-origins=*");
+		WebDriver driver=new ChromeDriver(co);
+		
+		//To Enter Url/Open An Application
+		driver.get("file:///G:/Software%20Testing%20notes/Automation%20Testing/Automation%20Testing/Selenium/Selenium%20II/Listbox/MultiselectableListbox.html");
+		
+		//Wait 
+		Thread.sleep(2000);
+		
+		//Step-I: Identify Listbox And Store It Into An Object
+		WebElement Multiselectable= driver.findElement(By.xpath("//select[@id='1234']"));
+		
+		//Step-II: Create Object of the Select Class
+		Select S1=new Select(Multiselectable);
+		
+		//Step-III: Call The method
+		List<WebElement> S2=S1.getOptions();  //Addresses----> 4
+	
+	    for(WebElement S3:S2) 
+	    {
+	    
+	    	 String T1=S3.getText();
+	    	 System.out.println(T1);
+	    	
+	    	
+	    	
+	    	
+	    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}	
+	
+}
